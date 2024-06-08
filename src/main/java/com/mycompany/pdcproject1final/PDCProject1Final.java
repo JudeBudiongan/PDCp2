@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
- * Main class to launch the Snakes and Ladders game with GUI. k
+ * Main class to launch the Snakes and Ladders game with GUI. kkkk
  */
 public class PDCProject1Final {
 
