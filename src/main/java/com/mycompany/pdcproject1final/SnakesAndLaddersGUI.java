@@ -4,7 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ *
+ * @author jude
+ */
 public class SnakesAndLaddersGUI extends JFrame {
     private final GameBoardPanel gameBoardPanel;
     private final JPanel controlPanel;
@@ -48,12 +51,13 @@ public class SnakesAndLaddersGUI extends JFrame {
                 ex.printStackTrace();
             }
         });
+        
         toggleSnakesButton.addActionListener(e -> gameBoardPanel.toggleSnakesVisibility());
         toggleLaddersButton.addActionListener(e -> gameBoardPanel.toggleLaddersVisibility());
 
         // Set preferred size for roll dice button to make it slightly bigger
         rollDiceButton.setPreferredSize(new Dimension(100, 100));
-
+        // Initialize buttons
         controlPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -74,7 +78,7 @@ public class SnakesAndLaddersGUI extends JFrame {
         gbc.gridy = 4;
         gbc.weighty = 1;
         controlPanel.add(new JScrollPane(gameLog), gbc);
-
+        
         add(gameBoardPanel, BorderLayout.CENTER);
         add(controlPanel, BorderLayout.EAST);
         setLocationRelativeTo(null);

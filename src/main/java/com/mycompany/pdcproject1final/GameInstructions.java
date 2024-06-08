@@ -2,7 +2,10 @@ package com.mycompany.pdcproject1final;
 
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ *
+ * @author jude
+ */
 public class GameInstructions extends JFrame {
     public GameInstructions() {
         setTitle("Instructions");

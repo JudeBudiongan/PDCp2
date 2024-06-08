@@ -3,7 +3,6 @@ package com.mycompany.pdcproject1final;
  *
  * @author jude
  */
-
 /**
  * Represents an automated player in the Snakes and Ladders game.
  */

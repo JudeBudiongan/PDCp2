@@ -1,5 +1,8 @@
 package com.mycompany.pdcproject1final;
-
+/**
+ *
+ * @author jude
+ */
 /**
  * Represents a human player in the Snakes and Ladders game.
  */

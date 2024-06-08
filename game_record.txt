@@ -104,3 +104,6 @@ natha: WON
 jujui: WON
 ujuj: LOST
 -----
+lol: LOST
+jk: WON
+-----

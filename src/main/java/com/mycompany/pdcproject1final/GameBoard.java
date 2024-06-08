@@ -14,7 +14,6 @@ import java.util.List;
  */
 public class GameBoard {
 
-    
     public static final int BOARD_SIZE = 100;
     private final SnakesAndLaddersGUI gui; // Reference to the GUI
     

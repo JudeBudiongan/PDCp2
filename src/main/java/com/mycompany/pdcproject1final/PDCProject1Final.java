@@ -2,9 +2,12 @@ package com.mycompany.pdcproject1final;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-
 /**
- * Main class to launch the Snakes and Ladders game with GUI. 
+ *
+ * @author jude
+ */
+/**
+ * Main class to launch the Snakes and Ladders game with GUI. test
  */
 public class PDCProject1Final {
 

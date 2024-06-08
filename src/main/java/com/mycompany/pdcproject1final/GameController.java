@@ -1,7 +1,10 @@
 package com.mycompany.pdcproject1final;
 
 import javax.swing.*;
-
+/**
+ *
+ * @author jude
+ */
 public class GameController {
     private final Player[] players;
     private final GameBoard gameBoard;
@@ -39,10 +42,8 @@ public class GameController {
         int diceRoll = rollDice();
         gui.appendToGameLog(currentPlayer.getName() + " rolled a " + diceRoll + ".");
 
-        // Capture old position
+        // Capture old and new positions
         int oldPosition = currentPlayer.getPosition();
-
-        // Calculate new position
         int newPosition = oldPosition + diceRoll;
 
         // Cap the position to BOARD_SIZE if it exceeds the board size
@@ -72,8 +73,6 @@ public class GameController {
 
         // Prepare for the next turn
         currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
-        
-        
         gui.appendToGameLog("\nTurn over. Roll dice to continue.\n----------");
     }
 
