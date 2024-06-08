@@ -6,7 +6,7 @@ import java.awt.*;
 public class GameInstructions extends JFrame {
     public GameInstructions() {
         setTitle("Instructions");
-        setSize(450, 300);
+        setSize(450, 365);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         JTextArea instructionsArea = new JTextArea();
@@ -24,6 +24,10 @@ public class GameInstructions extends JFrame {
                                  position. The first player to reach the final position on the
                                  grid, 100, wins the game!
                                  
+                                 *Note that the Toggle Snakes/Ladders buttons only toggles their 
+                                 visibility, not their functionality. a
+                                 
+                               
                                  JUDE BUDIONGAN - 22170014 - COMP603 PROJECT 2                           
                                  """);
 

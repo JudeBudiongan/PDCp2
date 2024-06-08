@@ -17,9 +17,12 @@ public class SnakesAndLaddersGUI extends JFrame {
 
     public SnakesAndLaddersGUI(Player[] players, String player1Name, String player2Name) {
         setTitle("Snakes and Ladders");
-        setSize(1000, 800);
+        setSize(1050, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+
+        gameLog = new JTextArea(15, 30);
+        gameLog.setEditable(false);
 
         gameController = new GameController(players, player1Name, player2Name, this);
 
@@ -29,8 +32,6 @@ public class SnakesAndLaddersGUI extends JFrame {
         toggleSnakesButton = new JButton("Toggle Snakes");
         toggleLaddersButton = new JButton("Toggle Ladders");
         instructionsButton = new JButton("Instructions"); // Initialize instructions button
-        gameLog = new JTextArea(10, 30);
-        gameLog.setEditable(false);
 
         // Action listener for instructions button
         instructionsButton.addActionListener(new ActionListener() {
@@ -78,6 +79,9 @@ public class SnakesAndLaddersGUI extends JFrame {
         add(controlPanel, BorderLayout.EAST);
         setLocationRelativeTo(null);
         setVisible(true);
+
+        // Now that everything is initialized, start the game
+        gameController.startGame();
     }
 
     public void updateGameBoard() {

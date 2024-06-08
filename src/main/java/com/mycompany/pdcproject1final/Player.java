@@ -13,12 +13,12 @@ package com.mycompany.pdcproject1final;
 public abstract class Player {
     protected String name;
     protected int position;
-    private final boolean isHuman;
+    private final boolean isPlayer1;
     
     public Player(String name, boolean isHuman) {
         this.name = name;
         this.position = 0;
-        this.isHuman = isHuman;
+        this.isPlayer1 = isHuman;
     }
 
     public String getName() {
@@ -34,7 +34,7 @@ public abstract class Player {
     }
     
     public boolean isHuman() {
-        return isHuman;
+        return isPlayer1;
     }
 
     public abstract void playTurn(GameBoard gameBoard, int diceRoll);

@@ -6,48 +6,75 @@ public class GameController {
     private final Player[] players;
     private final GameBoard gameBoard;
     private final PlayerData playerData;
-    private final int[] positions;
     private final SnakesAndLaddersGUI gui;
     private int currentPlayerIndex = 0;
+    private boolean firstTurn = true;
 
     public GameController(Player[] players, String player1Name, String player2Name, SnakesAndLaddersGUI gui) {
         this.players = players;
         this.gameBoard = new GameBoard(gui);
         this.playerData = new PlayerData(player1Name, player2Name);
-        this.positions = new int[players.length];
         this.gui = gui;
     }
 
-    public void executePlayerTurn() throws InterruptedException {
-        Player currentPlayer = players[currentPlayerIndex];
+    public void startGame() {
+        // Show the initial turn message
+        gui.appendToGameLog("Welcome to Snakes and Ladders!\n---------");
+        gui.appendToGameLog("It is now " + getCurrentPlayer().getName() + "'s (BLUE) turn.");
+    }
 
-        if (currentPlayer.isHuman()) {
-            int diceRoll = rollDice();
-            gui.appendToGameLog("It is now " + currentPlayer.getName() + "'s turn.");
-            gui.appendToGameLog(currentPlayer.getName() + " rolled a " + diceRoll + ".");
-            currentPlayer.playTurn(gameBoard, diceRoll);
-            gui.appendToGameLog(currentPlayer.getName() + " is now at position " + currentPlayer.getPosition() + ".");
-            gui.appendToGameLog("----------");
-        } else {
+    public void executePlayerTurn() throws InterruptedException {
+            Player currentPlayer = players[currentPlayerIndex];
             
-            gui.appendToGameLog("It is now " + currentPlayer.getName() + "'s turn.");
-            int diceRoll = rollDice();
-            gui.appendToGameLog(currentPlayer.getName() + " rolled a " + diceRoll + ".");
-            currentPlayer.playTurn(gameBoard, diceRoll);
-            gui.appendToGameLog(currentPlayer.getName() + " is now at position " + currentPlayer.getPosition() + ".");
-            gui.appendToGameLog("----------");
+        if (!firstTurn) {
+            if(currentPlayer == players[0]) {
+            gui.appendToGameLog("It is now " + currentPlayer.getName() + "'s (BLUE) turn.");
+            } else {
+            gui.appendToGameLog("It is now " + currentPlayer.getName() + "'s (YELLOW) turn.");
+            }
+        } else {
+            firstTurn = false;
         }
 
-        updatePlayerPositions();
+        int diceRoll = rollDice();
+        gui.appendToGameLog(currentPlayer.getName() + " rolled a " + diceRoll + ".");
 
+        // Capture old position
+        int oldPosition = currentPlayer.getPosition();
+
+        // Calculate new position
+        int newPosition = oldPosition + diceRoll;
+
+        // Cap the position to BOARD_SIZE if it exceeds the board size
+        if (newPosition > GameBoard.BOARD_SIZE) {
+            newPosition = GameBoard.BOARD_SIZE;
+        }
+
+        currentPlayer.setPosition(newPosition);
+        gui.appendToGameLog(currentPlayer.getName() + " moved from position " + oldPosition + " to position " + newPosition + ".");
+
+        // Apply any snake or ladder effect at the new position
+        gameBoard.checkAndApplySnakeOrLadder(currentPlayer);
+
+        // Log the final position after snake or ladder check
+        gui.appendToGameLog(currentPlayer.getName() + " is now at position " + currentPlayer.getPosition() + ".");
+
+        // Check if the player won after applying snake or ladder effects
         if (checkGameOver(currentPlayer)) {
+            gui.updateGameBoard(); // Ensure the GUI reflects the final move
             playerData.writeToRecordFile();
             JOptionPane.showMessageDialog(gui, currentPlayer.getName() + " wins!!!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-            return;
+            System.exit(0);
+            return; // Exit the method to prevent further actions
         }
+        
+        gui.updateGameBoard(); // Update the board after all moves and effects
 
+        // Prepare for the next turn
         currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
-        gui.updateGameBoard();
+        
+        
+        gui.appendToGameLog("\nTurn over. Roll dice to continue.\n----------");
     }
 
     private boolean checkGameOver(Player currentPlayer) {
@@ -62,13 +89,12 @@ public class GameController {
         return false;
     }
 
-    private void updatePlayerPositions() {
-        for (int i = 0; i < players.length; i++) {
-            positions[i] = players[i].getPosition();
-        }
-    }
-
     private int rollDice() {
         return (int) (Math.random() * 6) + 1;
+    }
+
+    // Method to get current player
+    public Player getCurrentPlayer() {
+        return players[currentPlayerIndex];
     }
 }

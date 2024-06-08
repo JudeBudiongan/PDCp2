@@ -62,7 +62,7 @@ public class GameBoardPanel extends JPanel {
     }
 
     private void drawPlayers(Graphics g, int tileSize) {
-        Color[] playerColors = {Color.BLUE, Color.ORANGE};
+        Color[] playerColors = {Color.BLUE, Color.YELLOW};
         for (int i = 0; i < players.length; i++) {
             int position = players[i].getPosition();
             Point coords = getCoordinates(position, tileSize);
