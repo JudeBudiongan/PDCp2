@@ -1,0 +1,103 @@
+jude: LOST
+nathan: WON
+-----
+jude: WON
+hello: LOST
+-----
+player1: WON
+player2: LOST
+-----
+jude: LOST
+notjude: WON
+-----
+blue: LOST
+red: WON
+-----
+
+jude: LOST
+nathan: WON
+-----
+JUDE: WON
+NATHAN: LOST
+-----
+JUDE: WON
+NATHAN: LOST
+-----
+Jude: LOST
+Nathan: WON
+-----
+Jude: LOST
+Nathan: WON
+-----
+Jude: LOST
+Nathan: WON
+-----
+Jude: LOST
+Nathan: WON
+-----
+JUDE: WON
+NATHAN: LOST
+-----
+JUDE: WON
+NATHAN: LOST
+-----
+jude: WON
+asd: LOST
+-----
+jude: WON
+asd: LOST
+-----
+Jude: WON
+Nathan: LOST
+-----
+jude: WON
+alvyn: LOST
+-----
+null: WON
+null: LOST
+-----
+lol: LOST
+kef: WON
+-----
+gang: LOST
+ses: WON
+-----
+gang: LOST
+ses: WON
+-----
+weijaijf: LOST
+jisdajiosda: WON
+-----
+kmk: WON
+kk: LOST
+-----
+lo: LOST
+no: WON
+-----
+lo: LOST
+no: WON
+-----
+joy: LOST
+dan: WON
+-----
+joy: LOST
+dan: WON
+-----
+joy: LOST
+dan: WON
+-----
+joy: LOST
+dan: WON
+-----
+hel: WON
+ear: LOST
+-----
+lol: LOST
+haha: WON
+-----
+sian: WON
+kefe: LOST
+-----
+jude: LOST
+natha: WON
+-----
