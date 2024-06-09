@@ -4,7 +4,7 @@ package com.mycompany.pdcproject1final;
  * @author jude
  */
 /**
- * Represents an automated player in the Snakes and Ladders game.
+ * Represents the second player in the Snakes and Ladders game. azazazsxsxsx
  */
 public class Player2 extends Player {
     
@@ -20,6 +20,6 @@ public class Player2 extends Player {
         // Check and apply any snake or ladder effects on the player's position
         gameBoard.checkAndApplySnakeOrLadder(this); // Call the method from GameBoard
         
-       
+        
     }
 }

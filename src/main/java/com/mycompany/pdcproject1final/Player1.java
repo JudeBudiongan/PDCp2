@@ -4,7 +4,7 @@ package com.mycompany.pdcproject1final;
  * @author jude
  */
 /**
- * Represents a human player in the Snakes and Ladders game.
+ * Represents the first player in the Snakes and Ladders game.
  */
 public class Player1 extends Player {
     
