@@ -1,4 +1,4 @@
-package com.mycompany.pdcproject1final;
+package com.mycompany.pdcproject2final;
 
 /**
  *
@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 /**
  * Manages the game data, including player names and game outcomes.
+ * I understand that this isn't a database component, but I could not get it
+ * working in time so this is from my first project.
  */
 public class PlayerData {
     private final String player1Name; 

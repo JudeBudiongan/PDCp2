@@ -1,4 +1,4 @@
-package com.mycompany.pdcproject1final;
+package com.mycompany.pdcproject2final;
 
 import javax.swing.*;
 /**
@@ -88,6 +88,7 @@ public class GameController {
         return false;
     }
 
+    //Uses random int for dice roll
     private int rollDice() {
         return (int) (Math.random() * 6) + 1;
     }

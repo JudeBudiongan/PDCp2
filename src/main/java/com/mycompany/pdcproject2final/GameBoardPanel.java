@@ -1,10 +1,10 @@
-package com.mycompany.pdcproject1final;
+package com.mycompany.pdcproject2final;
 
 import javax.swing.*;
 import java.awt.*;
+
 /**
- *
- * @author jude
+ * JPanel subclass for drawing the game board for Snakes and Ladders.
  */
 public class GameBoardPanel extends JPanel {
     private final Player[] players;
@@ -21,10 +21,10 @@ public class GameBoardPanel extends JPanel {
         super.paintComponent(g);
 
         int tileSize = getWidth() / 10;
-        drawBoard(g, tileSize);
-        if (snakesVisible) drawSnakes(g, tileSize);
-        if (laddersVisible) drawLadders(g, tileSize);
-        drawPlayers(g, tileSize);
+        drawBoard(g, tileSize); // Draws the grid of the game board
+        if (snakesVisible) drawSnakes(g, tileSize); // Draws snakes if they are visible
+        if (laddersVisible) drawLadders(g, tileSize); // Draws ladders if they are visible
+        drawPlayers(g, tileSize); // Draws the players on the board
     }
 
     private void drawBoard(Graphics g, int tileSize) {
@@ -34,8 +34,8 @@ public class GameBoardPanel extends JPanel {
                 if ((9 - j) % 2 == 1) {
                     position = (9 - j) * 10 + (10 - i);
                 }
-                g.drawRect(i * tileSize, j * tileSize, tileSize, tileSize);
-                g.drawString(String.valueOf(position), i * tileSize + tileSize / 2 - 5, j * tileSize + tileSize / 2 + 5);
+                g.drawRect(i * tileSize, j * tileSize, tileSize, tileSize); // Draws a tile of the game board
+                g.drawString(String.valueOf(position), i * tileSize + tileSize / 2 - 5, j * tileSize + tileSize / 2 + 5); // Draws the position number on the tile
             }
         }
     }
@@ -45,7 +45,7 @@ public class GameBoardPanel extends JPanel {
         g2d.setStroke(new BasicStroke(4));
         g.setColor(Color.RED);
         for (int i = 0; i < GameBoard.snakeStarts.size(); i++) {
-            drawLine(g, GameBoard.snakeStarts.get(i), GameBoard.snakeEnds.get(i), tileSize);
+            drawLine(g, GameBoard.snakeStarts.get(i), GameBoard.snakeEnds.get(i), tileSize); // Draws a snake on the board
         }
     }
 
@@ -54,14 +54,14 @@ public class GameBoardPanel extends JPanel {
         g2d.setStroke(new BasicStroke(4));
         g.setColor(Color.GREEN);
         for (int i = 0; i < GameBoard.ladderStarts.size(); i++) {
-            drawLine(g, GameBoard.ladderStarts.get(i), GameBoard.ladderEnds.get(i), tileSize);
+            drawLine(g, GameBoard.ladderStarts.get(i), GameBoard.ladderEnds.get(i), tileSize); // Draws a ladder on the board
         }
     }
 
     private void drawLine(Graphics g, int start, int end, int tileSize) {
         Point startPoint = getCoordinates(start, tileSize);
         Point endPoint = getCoordinates(end, tileSize);
-        g.drawLine(startPoint.x + tileSize / 2, startPoint.y + tileSize / 2, endPoint.x + tileSize / 2, endPoint.y + tileSize / 2);
+        g.drawLine(startPoint.x + tileSize / 2, startPoint.y + tileSize / 2, endPoint.x + tileSize / 2, endPoint.y + tileSize / 2); // Draws a line (snake or ladder) between two positions
     }
 
     private void drawPlayers(Graphics g, int tileSize) {
@@ -70,7 +70,7 @@ public class GameBoardPanel extends JPanel {
             int position = players[i].getPosition();
             Point coords = getCoordinates(position, tileSize);
             g.setColor(playerColors[i]);
-            g.fillOval(coords.x + tileSize / 4, coords.y + tileSize / 4, tileSize / 2, tileSize / 2);
+            g.fillOval(coords.x + tileSize / 4, coords.y + tileSize / 4, tileSize / 2, tileSize / 2); // Draws a player on the board
         }
     }
 
@@ -82,16 +82,16 @@ public class GameBoardPanel extends JPanel {
         }
         int x = col * tileSize;
         int y = (9 - row) * tileSize;
-        return new Point(x, y);
+        return new Point(x, y); // Returns the coordinates of a position on the board
     }
     
     public void toggleSnakesVisibility() {
         snakesVisible = !snakesVisible;
-        repaint();
+        repaint(); // Toggles the visibility of snakes and repaints the board
     }
     
     public void toggleLaddersVisibility() {
         laddersVisible = !laddersVisible;
-        repaint();
+        repaint(); // Toggles the visibility of ladders and repaints the board
     }
 }

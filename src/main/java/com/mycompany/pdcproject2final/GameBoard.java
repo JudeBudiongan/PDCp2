@@ -1,4 +1,4 @@
-package com.mycompany.pdcproject1final;
+package com.mycompany.pdcproject2final;
 /**
  *
  * @author jude

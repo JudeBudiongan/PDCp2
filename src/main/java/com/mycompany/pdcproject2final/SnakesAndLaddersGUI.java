@@ -1,4 +1,4 @@
-package com.mycompany.pdcproject1final;
+package com.mycompany.pdcproject2final;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,15 +26,15 @@ public class SnakesAndLaddersGUI extends JFrame {
 
         gameLog = new JTextArea(15, 30);
         gameLog.setEditable(false);
-
         gameController = new GameController(players, player1Name, player2Name, this);
-
+        
+        // Initializes 
         gameBoardPanel = new GameBoardPanel(players);
         controlPanel = new JPanel();
         rollDiceButton = new JButton("ROLL DICE");
         toggleSnakesButton = new JButton("Toggle Snakes");
         toggleLaddersButton = new JButton("Toggle Ladders");
-        instructionsButton = new JButton("Instructions"); // Initialize instructions button
+        instructionsButton = new JButton("Instructions"); 
 
         // Action listener for instructions button
         instructionsButton.addActionListener(new ActionListener() {

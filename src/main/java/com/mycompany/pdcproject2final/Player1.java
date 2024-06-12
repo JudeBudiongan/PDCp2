@@ -1,4 +1,4 @@
-package com.mycompany.pdcproject1final;
+package com.mycompany.pdcproject2final;
 /**
  *
  * @author jude
@@ -9,19 +9,14 @@ package com.mycompany.pdcproject1final;
 public class Player1 extends Player {
     
     /**
-     * Constructor for HumanPlayer class.
-     * 
-     * @param name The name of the human player
+     * Constructor for Player1 class.
      */
     public Player1(String name) {
         super(name, true);
     }
 
     /**
-     * Plays a turn for the human player.
-     * 
-     * @param gameBoard The game board object
-     * @param diceRoll The result of the dice roll
+     * Plays a turn for Player1
      */
     @Override
     public void playTurn(GameBoard gameBoard, int diceRoll) {

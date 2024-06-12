@@ -1,10 +1,10 @@
-package com.mycompany.pdcproject1final;
+package com.mycompany.pdcproject2final;
 /**
  *
  * @author jude
  */
 /**
- * Represents the second player in the Snakes and Ladders game. azazazsxsxsx
+ * Represents the second player in the Snakes and Ladders game. 
  */
 public class Player2 extends Player {
     
@@ -19,7 +19,6 @@ public class Player2 extends Player {
         
         // Check and apply any snake or ladder effects on the player's position
         gameBoard.checkAndApplySnakeOrLadder(this); // Call the method from GameBoard
-        
         
     }
 }
